@@ -1,27 +1,55 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 export default function Sidebar({ onLogout }) {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   function handleLogout() {
     if (onLogout) onLogout();
-    // Clear local storage flag used by auth stub
-    localStorage.removeItem('isAuth');
     navigate('/login');
   }
 
   return (
     <aside className="sidebar">
-      <h2>Admin</h2>
+      <div style={{ marginBottom: 20 }}>
+        <h2>Transport Admin</h2>
+        {user && (
+          <div style={{ fontSize: 12, color: '#666' }}>
+            Welcome, {user.username}
+          </div>
+        )}
+      </div>
+      
       <nav>
-        <NavLink className="nav-link" to="/">Dashboard</NavLink>
-        <NavLink className="nav-link" to="/users">Users</NavLink>
-        <NavLink className="nav-link" to="/settings">Settings</NavLink>
+        <NavLink className="nav-link" to="/">
+          📊 Dashboard
+        </NavLink>
+        <NavLink className="nav-link" to="/buses">
+          🚌 Bus Management
+        </NavLink>
+        <NavLink className="nav-link" to="/routes">
+          🗺️ Routes & Stations
+        </NavLink>
+        <NavLink className="nav-link" to="/users">
+          👥 User Management
+        </NavLink>
+        <NavLink className="nav-link" to="/subsidies">
+          💰 Subsidies
+        </NavLink>
+        <NavLink className="nav-link" to="/reports">
+          📈 Reports
+        </NavLink>
+        <NavLink className="nav-link" to="/settings">
+          ⚙️ Settings
+        </NavLink>
       </nav>
 
-      <div style={{ marginTop: 20 }}>
-        <button className="btn" onClick={handleLogout}>Logout</button>
+      <div style={{ marginTop: 'auto', paddingTop: 20 }}>
+        <button className="btn" onClick={handleLogout} style={{ width: '100%' }}>
+          Logout
+        </button>
       </div>
     </aside>
   );

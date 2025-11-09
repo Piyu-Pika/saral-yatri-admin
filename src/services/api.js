@@ -1,5 +1,5 @@
 // API Configuration and Base Service
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'localhost:8080';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080';
 const API_VERSION = '/api/v1';
 
 class ApiService {
@@ -43,10 +43,21 @@ class ApiService {
 
         try {
             const response = await fetch(url, config);
+            
+            // Check content type
+            const contentType = response.headers.get('content-type');
+            
+            // If not JSON, throw error with response text
+            if (!contentType || !contentType.includes('application/json')) {
+                const text = await response.text();
+                console.error('Non-JSON response:', text);
+                throw new Error('Server returned non-JSON response. Please check API endpoint.');
+            }
+
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.error || data.message || 'Request failed');
+                throw new Error(data.error || data.message || `Request failed with status ${response.status}`);
             }
 
             return data;

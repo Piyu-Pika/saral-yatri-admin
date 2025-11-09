@@ -100,11 +100,46 @@ class AdminService {
   }
 
   async getAllRoutes() {
-    return ApiService.get('/routes/admin');
+    return ApiService.get('/routes/active');
   }
 
   async getRouteById(routeId) {
-    return ApiService.get(`/routes/admin/${routeId}`);
+    return ApiService.get(`/routes/${routeId}`);
+  }
+
+  async getRoutePerformance(routeId) {
+    return ApiService.get(`/routes/admin/${routeId}/performance`);
+  }
+
+  async getRouteStations(routeId) {
+    return ApiService.get(`/routes/${routeId}/stations`);
+  }
+
+  async getRouteStationsWithDetails(routeId) {
+    return ApiService.get(`/routes/${routeId}/stations/details`);
+  }
+
+  async findRoutesBetweenStations(startStationId, endStationId) {
+    return ApiService.get('/routes', { 
+      start_station_id: startStationId, 
+      end_station_id: endStationId 
+    });
+  }
+
+  async getRoutesByType(routeType) {
+    return ApiService.get('/routes/by-type', { route_type: routeType });
+  }
+
+  async getRoutesWithStation(stationId) {
+    return ApiService.get('/routes/with-station', { station_id: stationId });
+  }
+
+  async calculateFare(routeId, fromStationId, toStationId) {
+    return ApiService.get('/routes/fare', {
+      route_id: routeId,
+      from_station_id: fromStationId,
+      to_station_id: toStationId
+    });
   }
 
   // Station Management (Admin)
@@ -117,11 +152,48 @@ class AdminService {
   }
 
   async getAllStations() {
-    return ApiService.get('/stations/admin');
+    return ApiService.get('/stations/active');
   }
 
   async getStationById(stationId) {
-    return ApiService.get(`/stations/admin/${stationId}`);
+    return ApiService.get(`/stations/${stationId}`);
+  }
+
+  async getStationByCode(stationCode) {
+    return ApiService.get(`/stations/code/${stationCode}`);
+  }
+
+  async getStationUtilization(stationId) {
+    return ApiService.get(`/stations/admin/${stationId}/utilization`);
+  }
+
+  async searchStations(query) {
+    return ApiService.get('/stations/search', { q: query });
+  }
+
+  async getNearbyStations(latitude, longitude, radius = 5) {
+    return ApiService.get('/stations/nearby', { 
+      latitude, 
+      longitude, 
+      radius 
+    });
+  }
+
+  async getStationsByType(stationType) {
+    return ApiService.get('/stations/by-type', { station_type: stationType });
+  }
+
+  async getAccessibleStations() {
+    return ApiService.get('/stations/accessible');
+  }
+
+  // User Management
+  async getAllUsers() {
+    return ApiService.get('/admin/users');
+  }
+
+  async getUserById(userId) {
+    return ApiService.get(`/admin/users/${userId}`);
   }
 
   // User Verification

@@ -237,19 +237,41 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Responsive grid */
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .admin-root {
     flex-direction: column;
   }
   
   .sidebar {
+    width: 100%;
     height: auto;
-    order: 2;
+    padding: 15px;
+  }
+  
+  .sidebar h2 {
+    font-size: 16px;
+  }
+  
+  .nav-link {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 10px;
+    font-size: 13px;
   }
   
   .content {
-    order: 1;
+    padding: 15px;
   }
   
   .stat-card {
@@ -258,6 +280,71 @@
   
   .stat-value {
     font-size: 20px;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .login-card {
+    width: 90%;
+    max-width: 380px;
+  }
+  
+  /* Make tables scrollable on mobile */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 10px;
+  }
+  
+  .nav-link {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+  
+  .content {
+    padding: 10px;
+  }
+  
+  .stat-card {
+    padding: 10px;
+  }
+  
+  .stat-card h4 {
+    font-size: 12px;
+  }
+  
+  .stat-value {
+    font-size: 18px;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+  
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  h3 {
+    font-size: 16px;
+  }
+  
+  /* Stack form inputs vertically on small screens */
+  div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
   }
 }
 

@@ -12,6 +12,7 @@ const RouteManagement = () => {
   useEffect(() => {
     loadRoutes();
     loadStations();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadRoutes = async () => {

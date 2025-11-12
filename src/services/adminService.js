@@ -196,17 +196,8 @@ class AdminService {
     return ApiService.get(`/admin/users/${userId}`);
   }
 
-  // User Management
-  async getAllUsers() {
-    return ApiService.get('/admin/users');
-  }
-
-  async getUserById(userId) {
-    return ApiService.get(`/admin/users/${userId}`);
-  }
-
-  async verifyUser(userId) {
-    return ApiService.put(`/admin/users/${userId}/verify`);
+  async verifyUser(verificationData) {
+    return ApiService.post('/admin/users/verify', verificationData);
   }
 
   async updateUserStatus(userId, statusData) {
@@ -255,4 +246,5 @@ class AdminService {
   }
 }
 
-export default new AdminService();
+const adminService = new AdminService();
+export default adminService;

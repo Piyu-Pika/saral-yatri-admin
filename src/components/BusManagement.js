@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useApi } from '../hooks/useApi';
 import AdminService from '../services/adminService';
 import { Bus } from '../models/Bus';
-import { formatDate } from '../utils/helpers';
 
 const BusManagement = () => {
   const [buses, setBuses] = useState([]);
@@ -12,6 +11,7 @@ const BusManagement = () => {
 
   useEffect(() => {
     loadBuses();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadBuses = async () => {

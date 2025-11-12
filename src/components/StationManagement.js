@@ -10,6 +10,7 @@ const StationManagement = () => {
 
   useEffect(() => {
     loadStations();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loadStations = async () => {

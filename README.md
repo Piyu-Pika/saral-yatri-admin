@@ -80,7 +80,12 @@ src/
 │   └── SubsidyScheme.js
 ├── pages/              # Page components
 │   ├── Home.js
-│   └── Login.js
+│   ├── Login.js
+│   ├── UserManagement.js
+│   ├── RouteManagement.js
+│   ├── SubsidyManagement.js
+│   ├── Reports.js
+│   └── Settings.js
 ├── services/           # API services
 │   ├── api.js          # Base API service
 │   ├── authService.js  # Authentication service
@@ -192,13 +197,15 @@ Builds the app for production to the `build` folder
 - ✅ Authentication system with JWT
 - ✅ Admin dashboard with statistics
 - ✅ Bus management (CRUD operations)
+- ✅ User management with verification
+- ✅ Route management with station tracking
+- ✅ Subsidy scheme management with budget tracking
+- ✅ Comprehensive reporting (Revenue, Utilization, Subsidy, Compliance)
+- ✅ System settings and configuration
 - ✅ API service layer with error handling
 - ✅ Responsive design
 - ✅ Model classes for data management
-- 🚧 Route management (UI ready, API integration pending)
-- 🚧 Subsidy management (UI ready, API integration pending)
-- 🚧 Comprehensive reporting (UI ready, API integration pending)
-- 🚧 User management (UI ready, API integration pending)
+- ✅ Complete admin panel with all internal pages
 
 ## Contributing
 

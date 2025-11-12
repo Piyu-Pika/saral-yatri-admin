@@ -124,9 +124,45 @@ class AdminService {
     return ApiService.get(`/stations/admin/${stationId}`);
   }
 
-  // User Verification
-  async verifyUser(verificationData) {
-    return ApiService.post('/auth/verification/verify-user', verificationData);
+  // User Management
+  async getAllUsers() {
+    return ApiService.get('/admin/users');
+  }
+
+  async getUserById(userId) {
+    return ApiService.get(`/admin/users/${userId}`);
+  }
+
+  async verifyUser(userId) {
+    return ApiService.put(`/admin/users/${userId}/verify`);
+  }
+
+  async updateUserStatus(userId, statusData) {
+    return ApiService.put(`/admin/users/${userId}/status`, statusData);
+  }
+
+  // Route Status Management
+  async updateRouteStatus(routeId, statusData) {
+    return ApiService.put(`/routes/admin/${routeId}/status`, statusData);
+  }
+
+  // Subsidy Schemes
+  async getAllSubsidySchemes() {
+    return ApiService.get('/admin/subsidies/schemes');
+  }
+
+  // Reports
+  async getUtilizationReport(params = {}) {
+    return ApiService.get('/admin/reports/utilization', params);
+  }
+
+  // System Settings
+  async getSystemSettings() {
+    return ApiService.get('/admin/settings');
+  }
+
+  async updateSystemSettings(settingsData) {
+    return ApiService.put('/admin/settings', settingsData);
   }
 
   // Additional utility methods

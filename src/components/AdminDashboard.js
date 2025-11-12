@@ -17,6 +17,28 @@ const AdminDashboard = () => {
       setStats(response.data);
     } catch (err) {
       console.error('Failed to load stats:', err);
+      // Set mock data as fallback
+      setStats({
+        overview: {
+          active_buses: 0,
+          today_revenue: 0,
+          today_tickets: 0,
+          today_subsidy: 0,
+          active_routes: 0,
+          registered_users: 0
+        },
+        real_time: {
+          buses_in_service: 0,
+          passengers_served: 0,
+          current_occupancy: 0
+        },
+        compliance: {
+          compliant_buses: 0,
+          pending_renewals: 0,
+          maintenance_due: 0
+        },
+        generated_at: new Date().toISOString()
+      });
     }
   };
 

@@ -17,10 +17,15 @@ const BusManagement = () => {
   const loadBuses = async () => {
     try {
       const response = await execute(() => AdminService.getAllBuses());
-      const busModels = response.data.map(busData => new Bus(busData));
-      setBuses(busModels);
+      if (response.data && Array.isArray(response.data)) {
+        const busModels = response.data.map(busData => new Bus(busData));
+        setBuses(busModels);
+      } else {
+        setBuses([]);
+      }
     } catch (err) {
       console.error('Failed to load buses:', err);
+      setBuses([]);
     }
   };
 

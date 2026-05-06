@@ -380,3 +380,355 @@
   border-radius: 4px;
   margin-bottom: 20px;
 }
+
+/* IoT and Admin Control */
+.iot-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.osm-dummy-map {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  border-radius: 10px;
+  border: 1px solid #d9dde5;
+  overflow: hidden;
+  background: linear-gradient(180deg, #eef3ff 0%, #f8fbff 50%, #eef8f3 100%);
+}
+
+.map-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(98, 114, 164, 0.14) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(98, 114, 164, 0.14) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.map-watermark {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 12px;
+  color: #52606d;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.osm-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.bus-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: #ef4444;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 5px 8px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.35);
+}
+
+.bus-chip-wrap {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.bus-chip {
+  border: 1px solid #e4e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  background: #fbfdff;
+}
+
+.crowd-list,
+.suggestion-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.crowd-item,
+.suggestion-item {
+  border: 1px solid #e4e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  background: #fbfdff;
+}
+
+.crowd-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.level-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.level-high {
+  background: #ffe5e5;
+  color: #c62828;
+}
+
+.level-medium {
+  background: #fff2dc;
+  color: #d97706;
+}
+
+.level-low {
+  background: #e6f7ec;
+  color: #2e7d32;
+}
+
+.suggestion-item p {
+  margin: 6px 0;
+  color: #374151;
+}
+
+.suggestion-item small {
+  color: #4b5563;
+}
+
+.osm-xml-preview {
+  margin-top: 10px;
+  padding: 10px;
+  max-height: 120px;
+  overflow: auto;
+  font-size: 11px;
+  border-radius: 8px;
+  border: 1px solid #e4e8f0;
+  background: #f8fbff;
+  white-space: pre-wrap;
+}
+
+.admin-center-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.plain-list {
+  margin: 0;
+  padding-left: 18px;
+  color: #374151;
+  display: grid;
+  gap: 8px;
+}
+
+.alert-switch-list {
+  display: grid;
+  gap: 10px;
+}
+
+.alert-switch-item {
+  border: 1px solid #e4e8f0;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fbfdff;
+}
+
+@media (max-width: 980px) {
+  .iot-layout,
+  .admin-center-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* UI refresh overrides */
+:root {
+  --bg: #f2f6fb;
+  --surface: #ffffff;
+  --surface-soft: #f8fbff;
+  --text: #0f172a;
+  --muted: #5b6472;
+  --line: #dde5f0;
+  --primary: #0f4c81;
+  --primary-strong: #0b3a62;
+  --success: #137a4d;
+  --danger: #b42318;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+body {
+  background:
+    radial-gradient(circle at 0% 0%, #dfeeff 0%, transparent 40%),
+    radial-gradient(circle at 100% 0%, #e6fff1 0%, transparent 38%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", "Trebuchet MS", "Avenir Next", sans-serif;
+}
+
+.admin-root {
+  background: transparent;
+}
+
+.sidebar {
+  width: 260px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, #0f2743 0%, #123b63 100%);
+  color: #eaf4ff;
+  box-shadow: 8px 0 30px rgba(12, 26, 43, 0.25);
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  letter-spacing: 0.3px;
+}
+
+.sidebar .nav-link {
+  color: #d6e7ff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.sidebar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.sidebar .nav-link.active {
+  background: #fff;
+  color: #0f2743;
+  border-color: #fff;
+}
+
+.content {
+  padding: 22px 26px;
+}
+
+.header {
+  background: linear-gradient(120deg, #ffffff 0%, #f4f9ff 100%);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+}
+
+.page-subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.header-meta {
+  display: grid;
+  text-align: right;
+  gap: 4px;
+  color: #324054;
+  font-size: 13px;
+}
+
+.card,
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.btn {
+  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-strong) 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.btn:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: linear-gradient(180deg, #5e6f87 0%, #4a596e 100%);
+}
+
+input,
+select,
+textarea {
+  border-radius: 10px;
+  border: 1px solid #ced9e8;
+  background: #fcfdff;
+  color: #1f2937;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #77a6d6;
+  box-shadow: 0 0 0 4px rgba(41, 117, 193, 0.15);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+th {
+  background: #edf4fb;
+  color: #19324d;
+}
+
+td,
+th {
+  padding: 10px;
+  border-bottom: 1px solid #e7edf6;
+}
+
+.success {
+  color: var(--success);
+  background: #e7f7ef;
+  border: 1px solid #bde8cf;
+}
+
+.error {
+  color: var(--danger);
+  background: #fdeceb;
+  border: 1px solid #f7cbc7;
+}
+
+@media (max-width: 768px) {
+  .header {
+    gap: 10px;
+  }
+
+  .header-meta {
+    text-align: left;
+  }
+}

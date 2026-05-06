@@ -21,34 +21,40 @@ export default function Sidebar({ onLogout }) {
           </div>
         )}
       </div>
-      
+
       <nav>
         <NavLink className="nav-link" to="/">
-          📊 Dashboard
+          Dashboard
         </NavLink>
         <NavLink className="nav-link" to="/buses">
-          🚌 Buses
+          Buses
         </NavLink>
         <NavLink className="nav-link" to="/routes">
-          🗺️ Routes
+          Routes
         </NavLink>
         <NavLink className="nav-link" to="/stations">
-          🏢 Stations
+          Stations
         </NavLink>
         <NavLink className="nav-link" to="/conductors">
-          👨‍✈️ Conductors
+          Conductors
         </NavLink>
         <NavLink className="nav-link" to="/users">
-          👥 Users
+          Users
         </NavLink>
         <NavLink className="nav-link" to="/subsidies">
-          💰 Subsidies
+          Subsidies
         </NavLink>
         <NavLink className="nav-link" to="/reports">
-          📈 Reports
+          Reports
+        </NavLink>
+        <NavLink className="nav-link" to="/iot">
+          IoT Monitoring
+        </NavLink>
+        <NavLink className="nav-link" to="/admin-control">
+          Admin Control
         </NavLink>
         <NavLink className="nav-link" to="/settings">
-          ⚙️ Settings
+          Settings
         </NavLink>
       </nav>
 

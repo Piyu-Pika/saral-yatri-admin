@@ -10,6 +10,8 @@ import ConductorManagement from '../components/ConductorManagement';
 import UserManagement from '../components/UserManagement';
 import SubsidyManagement from '../components/SubsidyManagement';
 import ReportsManagement from '../components/ReportsManagement';
+import IoTMonitoring from '../components/IoTMonitoring';
+import AdminControlCenter from '../components/AdminControlCenter';
 
 function Settings() {
   const [settings, setSettings] = useState({
@@ -253,6 +255,8 @@ export default function Home({ onLogout }) {
           <Route path="/users" element={<UserManagement />} />
           <Route path="/subsidies" element={<SubsidyManagement />} />
           <Route path="/reports" element={<ReportsManagement />} />
+          <Route path="/iot" element={<IoTMonitoring />} />
+          <Route path="/admin-control" element={<AdminControlCenter />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </main>
